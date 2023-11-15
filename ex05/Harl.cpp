@@ -1,6 +1,3 @@
-//
-// Created by Oussama Idrissi on 10/16/23.
-//
 
 #include "Harl.h"
 
@@ -48,9 +45,11 @@ void Harl::complain(std::string level)
 		i ++;
 	}
 	if (i == 4)
+	{
 		std::cout << RED << "No level can show !!!" << RESET << std::endl;
-	else
-		(this->*h[i])();
+		return ;
+	}
+	(this->*h[i])();
 }
 
 

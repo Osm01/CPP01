@@ -42,25 +42,25 @@ void Harl::harlFilter(std::string level)
 			break;
 		i ++;
 	}
-	if (i == 4)
-		std::cout << RED << "[ Probably complaining about insignificant problems ]" << RESET << std::endl;
-	else
-	{
-		switch (i) {
-			case 0:
-				std::cout << "[ " << levels[0] << " ]" << std::endl;
-				(this->*h[0])();
-			case 1:
-				std::cout << "[ " << levels[1] << " ]" << std::endl;
-				(this->*h[1])();
-			case 2:
-				std::cout << "[ " << levels[2] << " ]" << std::endl;
-				(this->*h[2])();
-			case 3:
-				std::cout << "[ " << levels[3] << " ]" << std::endl;
-				(this->*h[3])();
-				break;
-		}
+	switch (i) {
+		case 0:
+			std::cout << "[ " << levels[0] << " ]" << std::endl;
+			(this->*h[0])();
+			__attribute__((fallthrough));
+		case 1:
+			std::cout << "[ " << levels[1] << " ]" << std::endl;
+			(this->*h[1])();
+			__attribute__((fallthrough));
+		case 2:
+			std::cout << "[ " << levels[2] << " ]" << std::endl;
+			(this->*h[2])();
+			__attribute__((fallthrough));
+		case 3:
+			std::cout << "[ " << levels[3] << " ]" << std::endl;
+			(this->*h[3])();
+			break;
+		default:
+			std::cout << RED << "[ Probably complaining about insignificant problems ]" << RESET << std::endl;
 	}
 }
 

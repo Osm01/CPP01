@@ -10,12 +10,11 @@ FileManager::FileManager(std::string filename, std::string s1, std::string s2)
 
 std::fstream	*FileManager::open_file(void)
 {
-	std::fstream	*in = new std::fstream(this->filename, std::ios::in);
-
+	std::fstream	*in = new std::fstream(this->filename.c_str(), std::ios::in);
 	if (!(*in))
 	{
 		std::cout << RED << "Error open file or permission denied !!" << std::endl;
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	return (in);
 }
@@ -40,41 +39,27 @@ std::string FileManager::read_data(void)
 
 std::string FileManager::replace_data(std::string data)
 {
-	std::string new_buffer;
-	int 		ln_data;
-	int 		ln_s1;
-	int 		i;
+	int		index;
+	int		i;
 
-	ln_s1 = this->s1.length();
-	ln_data = data.length();
 	i = 0;
-	while (i < ln_data)
+	while ((index = data.find(this->s1, i)) != -1 && (size_t)i < data.length())
 	{
-		if (data[i] == this->s1[0])
-		{
-			if (data.substr(i, ln_s1) == s1)
-				new_buffer += this->s2;
-			else
-				new_buffer += data.substr(i, ln_s1);
-			i += ln_s1;
-		}
-		else
-		{
-			new_buffer += data[i];
-			i ++;
-		}
+		data.erase(index, this->s1.length());
+		data.insert(index, this->s2);
+		i = index + this->s1.length();
 	}
-	return (new_buffer);
+	return (data);
 }
 
 void FileManager::out_file(std::string data)
 {
-	std::fstream	out(this->filename + ".replace", std::ios::out);
-
+	this->filename += ".replace";
+	std::fstream	out(  this->filename.c_str() , std::ios::out);
 	if (!out)
 	{
 		std::cout << RED << "Error open file and write on it !!!!" << RESET << std::endl;
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	out << data;
 	out.close();

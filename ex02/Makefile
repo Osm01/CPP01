@@ -1,7 +1,7 @@
 NAME = ref
 
 ERRORS = -Wall -Wextra -Werror
-COMPI = g++ -std=c++98
+COMPI = c++ -std=c++98
 
 SRC = main.cpp
 

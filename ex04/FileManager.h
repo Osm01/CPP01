@@ -1,15 +1,17 @@
 
 #ifndef CPP01_FILEMANAGER_H
-#define CPP01_FILEMANAGER_H
+# define CPP01_FILEMANAGER_H
 
-#include <iostream>
-#include <fstream>
+# include <iostream>
+# include <fstream>
+# include <string.h>
+# include <cstdlib>
 
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define BLUE "\033[34m"
-#define RESET "\033[0m"
+# define RED "\033[31m"
+# define GREEN "\033[32m"
+# define YELLOW "\033[33m"
+# define BLUE "\033[34m"
+# define RESET "\033[0m"
 
 class FileManager {
 private:

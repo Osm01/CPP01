@@ -14,5 +14,5 @@ int main(int argc , char *argv[])
 	data = fileManager.read_data();
 	data_to_replace = fileManager.replace_data(data);
 	fileManager.out_file(data_to_replace);
-	return (EXIT_SUCCESS);
+	return (0);
 }

@@ -14,13 +14,16 @@ void    Zombie::announce()
 
 Zombie	*Zombie::zombieHorde(int N, std::string name)
 {
-	int		i;
+	int					i;
+	std::stringstream	ss;
 	Zombie	*zombie = new Zombie[N];
 
 	i = 0;
 	while (i < N)
 	{
-		zombie[i].name =  name + "_" + std::to_string(i);
+		ss << i;
+		zombie[i].name =  name + "_" + ss.str();
+		ss.str("");
 		i ++;
 	}
 	return (zombie);

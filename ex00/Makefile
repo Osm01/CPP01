@@ -2,7 +2,7 @@ NAME = Zombie
 
 ERRORS = -Wall -Wextra -Werror
 FLAGS = -fsanitize=address
-COMPI = g++ -std=c++98
+COMPI = c++ -std=c++98
 
 SRC = main.cpp Zombie.cpp
 

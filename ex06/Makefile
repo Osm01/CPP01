@@ -1,7 +1,7 @@
 NAME = harlFilter
 
-COMPI = g++ -std=c++98
-ERRORS = -Wall -Wextra -Werror -fsanitize=address
+COMPI = c++ -std=c++98
+ERRORS = -Wall -Wextra -Werror
 
 SRC = main.cpp Harl.cpp
 

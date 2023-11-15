@@ -1,6 +1,6 @@
 NAME = weapon
 
-COMPI = g++ -std=c++98
+COMPI = c++ -std=c++98
 ERRORS = -Wall -Wextra -Werror -fsanitize=address
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
